@@ -16,10 +16,11 @@ Including another URLconf
 
 from django.urls import path
 
-from .view import async_sleep, sync_sleep
+from .view import async_sleep, sync_sleep, AsyncView
 
 urlpatterns = [
     path("", sync_sleep, name="sync_sleep_index"),
     path("sync_sleep/", sync_sleep, name="sync_sleep"),
     path("async_sleep/", async_sleep, name="async_sleep"),
+    path("async_view/", AsyncView.as_view())
 ]
